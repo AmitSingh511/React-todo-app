@@ -6,12 +6,23 @@ function App() {
   function addTodo() {
     if (input.trim() === "") return;
     const newTodo = {
+      id: Date.now(),
       text: input,
       completed: false,
     };
     setTodos([...todos, newTodo]);
     setInput("");
   }
+  const deleteTodo = (index) => {
+    const updatedTodos = todos.filter((todo, i) => i != index); //only care about i(position) not the todo(item)
+    setTodos(updatedTodos);
+  };
+  const toggleComplete = (index) => {
+    const updatedTodos = todos.map((todo, i) =>
+      i === index ? { ...todo, completed: !todo.completed } : todo,
+    );
+    setTodos(updatedTodos);
+  };
   return (
     <>
       <div
@@ -39,31 +50,39 @@ function App() {
           </div>
           <div className="d-flex justify-content-center ">
             <ul
-              className="list-group w-50 mt-5 overflow-auto no-scrollbar gap-2 rounded"
+              className="list-group w-50 mt-5 overflow-auto no-scrollbar gap-2"
               style={{
                 maxHeight: "350px",
               }}
             >
               {todos.map((todo, index) => (
-                <li className="list-group-item d-flex justify-content-between align-items-center ">
+                <li
+                  className="list-group-item d-flex justify-content-between align-items-center rounded-3 "
+                  key={todo.id}
+                >
                   <span
-                    onClick={() => toggleComplete(index)}
                     style={{
                       textDecoration: todo.completed ? "line-through" : "none",
-                      cursor: "pointer",
                     }}
                   >
                     {todo.text}
                   </span>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => deleteTodo(index)}
-                  >
-                    Delete
-                  </button>
+                  <div className="d-flex gap-2">
+                    <button
+                      className="btn btn-success"
+                      onClick={() => toggleComplete(index)}
+                    >
+                      {todo.completed ? "Undo" : "Done"}
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => deleteTodo(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </li>
               ))}
-              <div></div>
             </ul>
           </div>
         </div>
