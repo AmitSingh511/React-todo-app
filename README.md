@@ -1,16 +1,89 @@
-# React + Vite
+# React Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and responsive task management app built with React and Vite. The project focuses on a simple, practical todo workflow: add tasks, mark them as complete, edit existing items, delete tasks, and keep progress saved in the browser.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add new todo items with unique IDs
+- Mark tasks as complete or active
+- Edit task text inline
+- Delete tasks from the list
+- View live task statistics for total, completed, and remaining items
+- Persist todos with `localStorage`
+- Responsive interface styled with custom CSS
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- CSS
+- UUID
+- ESLint
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+Make sure Node.js and npm are installed on your machine.
+
+### Installation
+
+```bash
+npm install
+```
+
+### Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in the terminal to view the app in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview the Production Build
+
+```bash
+npm run preview
+```
+
+### Lint the Project
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+react-todo-app/
+|-- public/
+|-- src/
+|   |-- Components/
+|   |   |-- TodoInput.jsx
+|   |   `-- TodoList.jsx
+|   |-- assets/
+|   |-- App.jsx
+|   |-- App.css
+|   |-- index.css
+|   |-- TodoInput.css
+|   |-- TodoList.css
+|   `-- main.jsx
+|-- index.html
+|-- package.json
+`-- vite.config.js
+```
+
+## How It Works
+
+The main application state is managed in `App.jsx`. Todos are loaded from `localStorage` when the app starts and saved again whenever the list changes. `TodoInput` handles creating new tasks, while `TodoList` handles completion, editing, saving, cancelling, and deletion.
+
+## Purpose
+
+This project demonstrates core React concepts such as component composition, state management with hooks, event handling, conditional rendering, and persistent browser storage in a small, easy-to-understand application.
