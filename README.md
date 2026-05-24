@@ -1,6 +1,7 @@
 # React Todo App
 <img width="426" height="341" alt="Screenshot 2026-05-25 020108" src="https://github.com/user-attachments/assets/8f8dab94-3b5f-411f-9872-74b0fe4531ed" />
 <img width="645" height="807" alt="Screenshot 2026-05-25 020240" src="https://github.com/user-attachments/assets/766922dc-7b4e-44fa-95c4-794d2ad1a5bb" />
+
 A clean and responsive task management app built with React and Vite. The project focuses on a simple, practical todo workflow: add tasks, mark them as complete, edit existing items, delete tasks, and keep progress saved in the browser.
 
 ## Features
